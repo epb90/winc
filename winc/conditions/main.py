@@ -105,6 +105,6 @@ result_3 = farm_action('windy', 'night', True, 'cowshed', 'winter', True, True)
 
 print(result_3)
 
-result_4 = farm_action('sunny', 'day', False, 'pasture', 'spring', False, True)
+result_4 = farm_action('sunny', 'day', True, 'pasture', 'spring', False, True)
 
 print(result_4)
