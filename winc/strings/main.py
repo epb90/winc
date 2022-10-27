@@ -17,28 +17,30 @@ goal_1 = 54
 
 
 
-scorers = ' '.join(map(str, [scorer_0, str(goal_0)])) + ", " + ' '.join(map(str, [scorer_1, str(goal_1)]))
+scorers = scorer_0 + ' ' + str(goal_0) + ", " + scorer_1 + ' ' + str(goal_1)
 
 print(scorers)
-report = f"{scorer_0} scored in the {goal_0}nd minute" '\n' f"{scorer_1} scored in the {goal_1}th minute"
+report = f"{scorer_0} scored in the {goal_0}nd minute\n{scorer_1} scored in the {goal_1}th minute"
 print(report)
 
 # Part 2
 player = 'Ruud Gullit'
 
-first_name = player[:4]
+first_name = player[:player.find(' ')]
 print(first_name)
 
-last_name = player[5:]
+
+last_name = player.split()[1]
 print(last_name)
 
-last_name_len = len(player[5:])
+last_name_len = len(last_name)
 print(last_name_len)
 
 name_short = f"{player[0]}. {last_name}"
 print(name_short)
 
-chant = 3 * f"{first_name}!".ljust(6, ' ') + f"{first_name}!"
+chant = (len(first_name) - 1) * f"{first_name}! " + f"{first_name}!"
 print(chant)
 
-good_chant = print(chant[-1] != " ")
+good_chant = chant[-1] != " "
+print(good_chant)
