@@ -31,16 +31,80 @@ __human_name__ = 'conditions'
                                         
         wait    --> when no other actions"""
 
+# functie
+from turtle import back
+
+
 def farm_action(weather, time_of_day, need_milking, location, season, tank_full, grass_long):
+    check_1 = False
+    check_2 = False
+    check_3 = False
+    check_4 = False
+    check_5 = False
+
+# in geval van pasture en 1 can be milked
+    if location == 'pasture' and need_milking == True:
+        take_cows_to_cowshed = "take cows to cowshed"
+        milk_cows = "milk cows"
+        back_to_pasture = "take cows back to pasture"
+        return f"{take_cows_to_cowshed}\n{milk_cows}\n{back_to_pasture}"
+
+# in geval van pasture en fertilize 
+    if weather != 'sunny' and weather != 'windy' and tank_full == True and location != 'cowshed':
+        take_cows_to_cowshed = "take cows to cowshed"
+        fertilize_pasture = "fertilize pasture"
+        back_to_pasture = "take cows back to pasture"
+        return f"{take_cows_to_cowshed}\n{fertilize_pasture}\n{back_to_pasture}"
+
+# in geval van pasture en mow grass
+    if grass_long == True and season == 'spring' and weather == 'sunny' and location != 'cowshed':
+        take_cows_to_cowshed = "take cows to cowshed"
+        mow_grass = "mow grass"
+        back_to_pasture = "take cows back to pasture"
+        return f"{take_cows_to_cowshed}\n{mow_grass}\n{back_to_pasture}"
+        
+# eerste actie: take cows to cowshed
     if location == 'pasture' and weather == 'rainy' or location == 'pasture' and time_of_day == 'night':
-        return "take cows to cowshed"
-    
-    if location == 'cowshed' and need_milking == True:
-        return "milk cows"
+        check_1 = True
+        take_cows_to_cowshed = "take cows to cowshed"
+        return take_cows_to_cowshed
 
-    if weather != 'sunny' and weather != 'windy' and tank_full == True and location == 'cowshed':
-        return "fertilize pasture"
+# tweede actie: milk cows
+    elif location == 'cowshed' and need_milking == True:
+        check_2 = True
+        milk_cows = "milk cows"
+        return milk_cows
 
-    if location == 'cowshed' and grass_long == True and season == 'spring' and weather == 'sunny':
-        return "mow grass"
+# derde actie: fertilize pasture
+    elif weather != 'sunny' and weather != 'windy' and tank_full == True and location == 'cowshed':
+        check_3 = True
+        fertilize_pasture = "fertilize pasture"
+        return fertilize_pasture
 
+# vier actie: mow grass
+    elif location == 'cowshed' and grass_long == True and season == 'spring' and weather == 'sunny':
+        check_4 = True
+        mow_grass = "mow grass"
+        return mow_grass
+
+# wait - bij geen enkele actie
+    else:
+        return "wait"
+
+
+
+result_1= farm_action('rainy', 'night', False, 'cowshed', 'winter', True, True)
+
+print(result_1)
+
+result_2 = farm_action('rainy', 'night', False, 'cowshed', 'winter', False, True)
+
+print(result_2)
+
+result_3 = farm_action('windy', 'night', True, 'cowshed', 'winter', True, True)
+
+print(result_3)
+
+result_4 = farm_action('sunny', 'day', False, 'pasture', 'spring', False, True)
+
+print(result_4)
