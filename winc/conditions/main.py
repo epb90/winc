@@ -32,9 +32,6 @@ __human_name__ = 'conditions'
         wait    --> when no other actions"""
 
 # functie
-from turtle import back
-
-
 def farm_action(weather, time_of_day, need_milking, location, season, tank_full, grass_long):
     check_1 = False
     check_2 = False
