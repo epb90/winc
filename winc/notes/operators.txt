@@ -1,0 +1,62 @@
+Arithmetic
+Here are some of the operators available to us in Python to do arithmetic:
+
+Arithmetic Operators
+Operator	Operation	    Example
++	        Addition	    3 + 2
+-	        Subtraction	    3 - 2
+*	        Multiplication	3 * 2
+/	        Division	    3 / 2
+%	        Modulo	        3 % 2
+**	        Exponentiation	2 ** 3
+//	        Floor division	3 // 2
+
+Relational Operators
+Operator	Operation	Example
+==	Equality	2 == 3
+!=	Inequality	2 !=3
+<	Less than	2 < 3
+>	Greater than	2 > 3
+<=	Less than or equal to	2 <= 3
+>=	Greater than or equal to	2 >= 3
+And then we also have the logical operators:
+
+Logical Operators
+Operator	Operation	Example
+and	True if both operands are true	True and False
+or	True if either one of the operands are true	True or False
+not	  negation; reverses the truth value of its operand	not True
+What's interesting about the not operator is that it has only one operand, so this operator is what we call a unary operator.
+
+Unlike arithmetic operators -- which can return a host of datatypes like numbers and strings -- these relational operators produce only the Boolean values True or False. For example, try this in a REPL:
+
+True is False
+True or False
+not True
+not False
+== is not is
+You may have noticed we now have two operators that compare two things and return a boolean: == and is. What's the difference? The technical explanation is:
+
+is will return True if the operands point to the same object
+== will return True if the operands point to objects that are equal
+If this makes sense for you: great, you can work with this knowledge. If not: don't worry about it and follow this rule of thumb:
+
+Use is only if what follows it is a boolean.
+
+# Followed the rule of thumb:
+'Example' is True
+# Did not follow the rule of thumb:
+'Example' is 'incorrect'
+# Followed the rule of thumb:
+'Example' == 'correct'
+
+Operator	Description
+( )	Parenthesizing
+[ ]	Indexing/slicing
+**	Exponentiation
+*, /, //, %	Multiplication, division, floor division and modulus
++, -	Addition and subtraction
+in, is, <, ==, !=, etc.	Relational operators and tests for membership
+not	Boolean NOT
+and	Boolean AND
+or	Boolean OR
